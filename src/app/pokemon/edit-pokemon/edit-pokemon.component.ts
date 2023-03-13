@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
 
+//Salut tout le monde!
 @Component({
   selector: 'app-edit-pokemon',
   template: `
