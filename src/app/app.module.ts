@@ -11,12 +11,14 @@ import { PokemonModule } from './pokemon/pokemon.module';
 import { InMemoryDataService } from './in-memory-data.service';
 import { LoginComponent } from './login/login.component';
 import { SimpleModalModule } from 'ngx-simple-modal';
+import { ConfirmComponent } from './pokemon/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     LoginComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,9 @@ import { SimpleModalModule } from 'ngx-simple-modal';
     PokemonModule,
     AppRoutingModule,
     SimpleModalModule,
+  ],
+  entryComponents: [
+    ConfirmComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
