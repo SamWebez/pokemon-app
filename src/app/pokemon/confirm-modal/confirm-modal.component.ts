@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SimpleModalComponent } from "ngx-simple-modal";
+
 export interface ConfirmModel {
   title:string;
   message:string;
@@ -20,4 +21,5 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
     this.result = true;
     this.close();
   }
-}
+} 
+
