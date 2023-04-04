@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
-import { NgToastService } from 'ng-angular-popup';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { ConfirmComponent } from '../confirm-modal/confirm-modal.component';
 
@@ -20,7 +19,6 @@ export class DetailPokemonComponent implements OnInit {
     private router: Router,
     private pokemonService: PokemonService,
     private simpleModalService: SimpleModalService,
-    private toast: NgToastService,
     ) { }
 
   ngOnInit() {
@@ -35,16 +33,7 @@ export class DetailPokemonComponent implements OnInit {
     this.pokemonService.deletePokemonById(pokemon.id)
       .subscribe(() => {
         this.showConfirm();
-        this.openSuccess();
-        setTimeout(() => {
-          this.goToPokemonList();
-        }, 1500)
       });
-  }
-
-  openSuccess() {
-    this.toast.success({detail:'Confirmation', summary:'The pokemon has been deleted', 
-    sticky: false, position:'bl', duration: 1500});
   }
   
   goToPokemonList() { 
@@ -61,20 +50,17 @@ export class DetailPokemonComponent implements OnInit {
           message: 'Confirm message'
         })
         .subscribe((isConfirmed)=>{
-            //We get modal result
             if(isConfirmed) {
-                alert('accepted');
+                console.log('accepted');
             }
             else {
-                alert('declined');
+                console.log('declined');
             }
         });
-    //We can close modal calling disposable.unsubscribe();
-    //If modal was not closed manually close it by timeout
     setTimeout(()=>{
         disposable.unsubscribe();
     },10000);
-}
+  }
 }
 
 
