@@ -34,5 +34,5 @@ pokemon: Pokemon|undefined;
       this.pokemon = undefined;
     }
   }
-
 }
+
