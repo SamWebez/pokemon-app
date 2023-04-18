@@ -8,15 +8,14 @@ import { AuthService } from './auth.service';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  auth: AuthService;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {}
 
-
   logout() {
+    this.auth.logout();
     this.router.navigate(['/login'])
   }
-
 }
