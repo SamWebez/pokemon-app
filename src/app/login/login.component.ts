@@ -13,14 +13,19 @@ export class LoginComponent implements OnInit {
   name: string;
   password: string; 
   auth: AuthService;
+  private logoutTimer: any;
 
   constructor(
     private authService: AuthService, 
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.auth = this.authService;
+    const timeoutDuration = 15000;
+    this.logoutTimer = setTimeout(() => {
+        this.logout() 
+      }, timeoutDuration);
   }
 
   setMessage() {
@@ -48,5 +53,13 @@ export class LoginComponent implements OnInit {
   logout() {
     this.auth.logout();
     this.message = 'You are disconnected';
+  }
+  
+  resetLogoutTimer() {
+    if (this.logoutTimer) {
+      clearTimeout(this.logoutTimer);
+    }
+
+    this.ngOnInit();
   }
 }

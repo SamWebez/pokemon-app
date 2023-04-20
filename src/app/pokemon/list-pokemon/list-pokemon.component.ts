@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener , ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
+import { LoginComponent } from 'src/app/login/login.component';
 
 @Component({
   selector: 'app-list-pokemon',
   templateUrl: './list-pokemon.component.html',
 })
 export class ListPokemonComponent implements OnInit {
+  @ViewChild(LoginComponent) loginComponent: LoginComponent;
+  @HostListener('document:click')
+  @HostListener('document:keydown')
+
   pokemonList: Pokemon[];
 
   constructor(
@@ -23,4 +28,8 @@ export class ListPokemonComponent implements OnInit {
   goToPokemon(pokemon: Pokemon) {
     this.router.navigate(['/pokemon', pokemon.id]);
   }
-} 
+
+  resetTimerOnUserInteraction() {
+    this.loginComponent.resetLogoutTimer();
+  } 
+}
