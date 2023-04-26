@@ -50,9 +50,7 @@
               "src/assets"
             ],
             "styles": [
-              "styles.css",
-              "../node_modules/ngx-simple-modal/styles/simple-modal.css",
-              "../node_modules/ngx-simple-modal/styles/simple-modal.scss"
+           
             ],
             "scripts": []
           },

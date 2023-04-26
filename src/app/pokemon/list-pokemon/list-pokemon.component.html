@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
         <app-search-pokemon></app-search-pokemon>
+     
         <div *ngFor="let pokemon of pokemonList" class="col m3 s6">
             <div (click)="goToPokemon(pokemon)" class="card horizonrtal" pkmnBorderCard>
                 <div class="card-image"> 
@@ -13,9 +14,8 @@
                         <span 
                             *ngFor="let type of pokemon.types" 
                             class="{{ type | pokemonTypeColor }}">
-
                             {{ type }}
-                        </span>
+                        </span>                        
                     </div>
                 </div>
             </div>

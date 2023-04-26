@@ -2,14 +2,14 @@ import { Component, OnInit,HostListener , ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
-import { LoginComponent } from 'src/app/login/login.component';
+import { LogoutTimerComponent } from '../logout-timer/logout-timer.component';
 
 @Component({
   selector: 'app-list-pokemon',
   templateUrl: './list-pokemon.component.html',
 })
 export class ListPokemonComponent implements OnInit {
-  @ViewChild(LoginComponent) loginComponent: LoginComponent;
+  @ViewChild(LogoutTimerComponent) loginComponent: LogoutTimerComponent;
   @HostListener('document:click')
   @HostListener('document:keydown')
 
